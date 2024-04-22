@@ -38,6 +38,10 @@
    iptables -A OUTPUT -j LOG --log-prefix "iptables-accepted: " --log-level 7
    ```
 4. Pour tester la configuration, vous pouvez essayer d'accéder à différents services depuis le réseau local et vérifier les journaux pour les activités autorisées et rejetées.
+ dmesg | grep "ACCEPTED-"
+5. dmesg | grep "REJECTED-"
+
+
 
 **Partie 2: Configuration de Snort en mode IDS**
 
