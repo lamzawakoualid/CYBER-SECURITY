@@ -27,8 +27,10 @@
    iptables -A INPUT -s IP_interne -p tcp --dport 22 -j ACCEPT
    iptables -A OUTPUT -p tcp --dport 80 -j ACCEPT
    iptables -A OUTPUT -p tcp --dport 443 -j ACCEPT
-   iptables -A OUTPUT -p udp --dport 53 -j ACCEPT
-   iptables -A OUTPUT -p icmp -j ACCEPT
+   iptables -A OUTPUT -p udp --dport 53 -d  adress -j ACCEPT
+   iptables -A INPUT -p icmp --icmp type echo request -j ACCEPT
+   iptables -A OUTPUT -p icmp --icmp type echo reply -j ACCEPT
+
    ```
 3. Configurez une règle de journalisation pour enregistrer les paquets rejetés ou acceptés :
    ```
